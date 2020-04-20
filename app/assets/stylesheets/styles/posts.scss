@@ -1,0 +1,25 @@
+header {
+	background-color:#6515DD;
+	height: 48px;
+	nav {
+		// background-color:#6515DD;
+		height:100%;
+		.svg-logo {
+			height: 100%;
+			fill: white;
+			// border: 1px solid red;
+			width: 170px;
+		}
+
+		.right-links{
+			display: flex;
+			height: 100%;
+			align-items: center;
+
+			.post-btn{
+				color:#6515DD;
+				font-weight: 500;
+			}
+		}
+	}
+}
