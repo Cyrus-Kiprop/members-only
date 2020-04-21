@@ -4,15 +4,17 @@
 <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
 <div class="form-inputs">
-  <%= simple_form_for @post do |f| %>
-  <%= f.input :body, label: "Post something nasty.", input_html: { class: "textarea "}, wrapper: false, label_html: {class: "label"}, placeholder: "Compose a new ...", autofocus: true %>
-  <!-- </div> -->
-</div>
+	<%= simple_form_for @post, class:'purple-border' do |f| %>
+	<div class="form-group purple-border">
+		<label for="exampleFormControlTextarea4" class="font-weight-bolder">Post something nasty.
+		</label>
+		<%= f.input :body, label: false, :as => :text, :input_html => { :rows => 5 , :style => 'width: 100%'} , placeholder: "Compose a post ..." %>
+	</div>
 
-<% end %>
+	<% end %>
 </div>
 
 <div class="form-actions">
-  <%= f.button :submit %>
+	<%= f.button :submit , class: 'btn btn-info btn-sm mb-3'%>
 </div>
 <% end %>

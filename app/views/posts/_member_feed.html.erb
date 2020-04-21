@@ -1,5 +1,53 @@
 <% if user_signed_in?  %>
-<div class="card d-flex ">
+<div class="card flex-row pt-3 border-0 mb-3 shadow">
+	<div class="gravatar px-3 ">
+		<%= gravatar_image_tag(current_user.email, size: 44, alt: current_user.name, class: 'rounded-circle',:gravatar => { :size => 35 }) %>
+	</div>
 
+	<div class="new-post-feed pr-3">
+		<%= render 'posts/form' %>
+	</div>
+
+</div>
+
+<% end %>
+
+
+<% @posts.each do |post|%>
+<div class="post-feed-list card flex-row  py-2 border-0 shadow">
+	<div class="gravatar px-3 ">
+		<%= gravatar_image_tag(current_user.email, size: 44, alt: current_user.name, class: 'rounded-circle',:gravatar => { :size => 45 }) %>
+	</div>
+	<div class="card border-0" >
+		<ul class="d-flex feed-user-info flex-column">
+			<li class="font-weight-bolder">
+				<%= current_user.name %>
+			</li>
+			<li class="">
+				<%= current_user.username %>
+			</li>
+			<li class="">
+				<%= post.body %>
+			</li>
+		</ul>
+
+		<div class="d-flex">
+			<% if user_signed_in? && current_user.id == post.user_id %>
+			<%= link_to 	edit_post_path(post), class: 'card-link' do %>
+			<i class="fas fa-edit"></i>
+			<% end %>
+			<%= link_to edit_post_path(post), class: 'card-link' do %>
+			<i class="far fa-trash-alt"></i>
+			<% end %>
+			<%= link_to edit_post_path(post), class: 'card-link' do %>
+			<i class="fas fa-share-alt-square"></i>
+			<% end %>
+			<% end %>
+			<%= link_to edit_post_path(post), class: 'card-link' do %>
+			456
+			<i class="far fa-eye"></i>
+			<% end %>
+		</div>
+	</div>
 </div>
 <% end %>
