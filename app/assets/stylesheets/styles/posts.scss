@@ -23,6 +23,24 @@ header {
 		}
 	}
 }
+.container {
+	.latest-posts{
+		font-weight:700;
+		font-size: 14px;
+		color: #6515DD;
+		text-transform: uppercase;
+	}
+}
+
+
+.posts-icons{
+	.card-link{
+		color: #6515DD;
+		i {
+			color: #6515DD;
+		}
+	}
+}
 
 .new-post-feed{
 

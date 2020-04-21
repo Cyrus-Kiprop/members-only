@@ -1,4 +1,4 @@
-<% if user_signed_in? and current_user.email  != null  %>
+<% if user_signed_in?%>
 <div class="card flex-row pt-3 border-0 mb-3 shadow">
 	<div class="gravatar px-3 ">
 		<%= gravatar_image_tag(current_user.email, size: 44, alt: current_user.name, class: 'rounded-circle',:gravatar => { :size => 35 }) %>
@@ -35,7 +35,7 @@
 			</li>
 		</ul>
 
-		<div class="d-flex">
+		<div class="posts-icons d-flex">
 			<% if user_signed_in? && current_user.id == post.user_id %>
 			<%= link_to 	edit_post_path(post), class: 'card-link' do %>
 			<i class="fas fa-edit"></i>

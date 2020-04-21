@@ -1,20 +1,22 @@
 <%# <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
 
 <section>
   <div class="container">
     <div class="row">
       <div class="col-3">
-        this section if the followers
+        <%= render 'naughty_feed' %>
       </div>
 
       <div class="col-6 p-0">
+        <% if !user_signed_in? %>
+        <h1 class="text-center latest-posts">Trending Posts</h1>
+        <% end %>
         <%= render 'member_feed'  %>
       </div>
 
       <div class="col-3">
-        this third of the followers
+        <%= render 'trending_feed' %>
       </div>
     </div>
   </div>
@@ -39,5 +41,3 @@
 </table> -->
 
 <br>
-
-<%= link_to 'New Post', new_post_path %>
