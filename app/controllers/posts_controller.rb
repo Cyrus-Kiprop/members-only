@@ -1,19 +1,15 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[show edit update destroy]
-  before_action :authenticate_user!, except: %i[index show]
+  before_action :set_post, only: %i[edit update destroy]
+  before_action :authenticate_user!, only: %i[new create]
 
   def index
     @posts = Post.all.order('created_at DESC')
     @post = Post.new
   end
 
-  def show; end
-
   def new
     @post = current_user.posts.build
   end
-
-  def edit; end
 
   def create
     @post = current_user.posts.build(post_params)
